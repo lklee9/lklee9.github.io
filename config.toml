@@ -1,0 +1,14 @@
+baseURL = 'http://lklee.dev/'
+languageCode = 'en-us'
+title = 'lklee'
+[markup.goldmark.renderer]
+  unsafe = true
+[menu]
+  [[menu.main]]
+    name = "lklee"
+    url = "/"
+    weight = 1
+  [[menu.pub]]
+    name = "publications"
+    url = "/pubs/"
+    weight = 2

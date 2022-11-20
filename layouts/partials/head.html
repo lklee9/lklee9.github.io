@@ -1,0 +1,7 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="{{ .Site.BaseURL }}">
+  {{ $sass := resources.Get "main.scss" }}
+  {{ $style := $sass | resources.ToCSS }}
+  <link rel="stylesheet" href={{ $style.Permalink }}>
+</head>

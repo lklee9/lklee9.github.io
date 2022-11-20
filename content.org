@@ -1,0 +1,76 @@
+#+hugo_base_dir: ./
+#+hugo_front_matter_format: yaml
+
+* DONE Recent Publications
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: /
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER:
+:END:
+My name is Loong Kuan Lee, this is my bio erstens resntn e nert resnerns  resntrn ersntern  rinr rietn ir irest asriet nnters
+* DONE About
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: /
+:EXPORT_FILE_NAME: about
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :links '((github . ("https://github.com/lklee9" "lklee9")) (gitlab .  ( "https://gitlab.com/lklee" "lklee")) )
+:END:
+My name is Loong Kuan Lee. I am currently a PhD candidate at Monash university awaiting the results for my thesis. My areas of interest include concept drift and probabilistic graphical models.
+* Blog :@blog:test:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: blog
+:END:
+** DONE Test post
+:PROPERTIES:
+:EXPORT_FILE_NAME: test-post
+:END:
+This is a Test post
+** DONE test post 2
+:PROPERTIES:
+:EXPORT_FILE_NAME: test-post-2
+:END:
+This is a Test post 2
+* Publications
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: pubs
+:END:
+** DONE Pub 1
+:PROPERTIES:
+:EXPORT_FILE_NAME: AAAI-23
+:EXPORT_AUTHOR: Loong Kuan Lee, Nico Piatkowski,François Petitjean, Geoff Webb
+:END:
+This is an abstract
+** DONE webb18
+:PROPERTIES:
+:EXPORT_FILE_NAME: webb18
+:END:
+#+begin_src yaml :front_matter_extra t
+title: Analyzing concept drift and shift from sample data
+author:
+  - family: Webb
+    given: Geoffrey I.
+  - family: Lee
+    given: Loong Kuan
+  - family: Goethals
+    given: Bart
+  - family: Petitjean
+    given: François
+venue: Data Mining and Knowledge Discovery
+DOI: 10.1007/s10618-018-0554-1
+year: 2018
+type: article-journal
+links:
+  - name: ResearchGate
+    link: https://www.researchgate.net/publication/323702657_Analyzing_concept_drift_and_shift_from_sample_data
+#+end_src
+Concept drift and shift are major issues that greatly affect the
+accuracy and reliability of many real-world applications of machine
+learning. We propose a new data mining task, concept drift
+mapping—the description and analysis of instances of concept drift
+or shift. We argue that concept drift mapping is an essential
+prerequisite for tackling concept drift and shift. We propose tools
+for this purpose, arguing for the importance of quantitative
+descriptions of drift and shift in marginal distributions. We
+present quantitative concept drift mapping techniques, along with
+methods for visualizing their results. We illustrate their
+effectiveness for real-world applications across energy-pricing,
+vegetation monitoring and airline scheduling.

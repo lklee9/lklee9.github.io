@@ -1,0 +1,21 @@
+{{ define "side" }}
+  {{ with .Site.GetPage "/about"  }}
+    {{ .Content }}
+    <d1 class="external-links">
+    {{ range $key, $value := .Params.links }}
+      <dt>{{ $key }}</dt>
+      <dd>
+      <a href={{ index $value 0 }} align="right">{{ index $value 1 }}</a>
+      </dd>
+    {{ end }}
+    </d1>
+  {{ end }}
+{{ end }}
+
+{{ define "main" }}
+    <h1> Publications </h1>
+    {{ range (where .Site.RegularPages "Section" "pubs" ) }}
+    {{- partial "pub-item.html" . -}}
+    {{ end }}
+<!--{{ .Content }} -->
+{{ end }}

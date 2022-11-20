@@ -1,0 +1,35 @@
+---
+title: "webb18"
+author: ["Loong Kuan Lee"]
+draft: false
+title: Analyzing concept drift and shift from sample data
+author:
+  - family: Webb
+    given: Geoffrey I.
+  - family: Lee
+    given: Loong Kuan
+  - family: Goethals
+    given: Bart
+  - family: Petitjean
+    given: François
+venue: Data Mining and Knowledge Discovery
+DOI: 10.1007/s10618-018-0554-1
+year: 2018
+type: article-journal
+links:
+  - name: ResearchGate
+    link: https://www.researchgate.net/publication/323702657_Analyzing_concept_drift_and_shift_from_sample_data
+---
+
+Concept drift and shift are major issues that greatly affect the
+accuracy and reliability of many real-world applications of machine
+learning. We propose a new data mining task, concept drift
+mapping—the description and analysis of instances of concept drift
+or shift. We argue that concept drift mapping is an essential
+prerequisite for tackling concept drift and shift. We propose tools
+for this purpose, arguing for the importance of quantitative
+descriptions of drift and shift in marginal distributions. We
+present quantitative concept drift mapping techniques, along with
+methods for visualizing their results. We illustrate their
+effectiveness for real-world applications across energy-pricing,
+vegetation monitoring and airline scheduling.
