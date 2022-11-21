@@ -13,6 +13,7 @@
 {{ end }}
 
 {{ define "main" }}
+    <title>{{ $.Site.Title }}</title>
     <h1> Publications </h1>
     <h2> Accepted </h2>
     {{ range where (where .Site.RegularPages "Section" "pubs" ) ".Params.status" "accepted" }}

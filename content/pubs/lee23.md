@@ -1,0 +1,40 @@
+---
+title: "lee2023"
+author: ["Loong Kuan Lee"]
+draft: false
+status: accepted
+title: Computing Divergences between discrete decomposable models
+author:
+  - family: Lee
+    given: Loong Kuan
+  - family: Piatkowski
+    given: Nico
+  - family: Petitjean
+    given: François
+  - family: Webb
+    given: Geoffrey I.
+venue: Proceedings of the AAAI Conference on Artificial Intelligence
+# DOI: 10.1007/s10618-018-0554-1
+year: 2023
+type: paper-conference
+links:
+  - name: ar𝚾iv
+    link: https://arxiv.org/abs/2112.04583
+  - name: code
+    link: https://gitlab.com/lklee/comp-div-dm
+---
+
+There are many applications that benefit from computing the exact
+divergence between 2 discrete probability measures, including machine
+learning. Unfortunately, in the absence of any assumptions on the
+structure or independencies within these distributions, computing the
+divergence between them is an intractable problem in high dimensions. We
+show that we are able to compute a wide family of functionals and
+divergences, such as the alpha-beta divergence, between two decomposable
+models, i.e~chordal Markov networks, in time exponential to the
+treewidth of these models. The alpha-beta divergence is a family of
+divergences that include popular divergences such as the
+Kullback-Leibler divergence, the Hellinger distance, and the chi-squared
+divergence. Thus, we can accurately compute the exact values of any of
+this broad class of divergences to the extent to which we can accurately
+model the two distributions using decomposable models.

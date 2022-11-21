@@ -1,6 +1,6 @@
 baseURL = 'http://lklee.dev/'
 languageCode = 'en-us'
-title = 'lklee'
+title = 'lklee.dev'
 [markup.goldmark.renderer]
   unsafe = true
 [params]

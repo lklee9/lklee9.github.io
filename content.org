@@ -44,6 +44,8 @@ type: paper-conference
 links:
   - name: ar𝚾iv
     link: https://arxiv.org/abs/2112.04583
+  - name: code
+    link: https://gitlab.com/lklee/comp-div-dm
 #+end_src
 There are many applications that benefit from computing the exact
 divergence between 2 discrete probability measures, including machine
@@ -82,6 +84,8 @@ type: article-journal
 links:
   - name: ResearchGate
     link: https://www.researchgate.net/publication/323702657_Analyzing_concept_drift_and_shift_from_sample_data
+  - name: code
+    link: https://github.com/lklee9/DriftMapper
 #+end_src
 Concept drift and shift are major issues that greatly affect the
 accuracy and reliability of many real-world applications of machine
