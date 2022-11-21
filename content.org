@@ -1,49 +1,70 @@
 #+hugo_base_dir: ./
 #+hugo_front_matter_format: yaml
 
-* DONE Recent Publications
-:PROPERTIES:
-:EXPORT_HUGO_SECTION: /
-:EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER:
-:END:
-My name is Loong Kuan Lee, this is my bio erstens resntn e nert resnerns  resntrn ersntern  rinr rietn ir irest asriet nnters
 * DONE About
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: /
 :EXPORT_FILE_NAME: about
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :links '((github . ("https://github.com/lklee9" "lklee9")) (gitlab .  ( "https://gitlab.com/lklee" "lklee")) )
 :END:
+#+begin_src yaml :front_matter_extra t
+links:
+  email: ["mailto:loong.kuan.lee@gmail.com", "loong.kuan.lee@gmail.com"]
+  github: ["https://github.com/lklee9", "lklee9"]
+  gitlab: ["https://gitlab.com/lklee", "lklee"]
+#+end_src
 My name is Loong Kuan Lee. I am currently a PhD candidate at Monash university awaiting the results for my thesis. My areas of interest include concept drift and probabilistic graphical models.
-* Blog :@blog:test:
+* Blog :@blog:
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: blog
 :END:
-** DONE Test post
-:PROPERTIES:
-:EXPORT_FILE_NAME: test-post
-:END:
-This is a Test post
-** DONE test post 2
-:PROPERTIES:
-:EXPORT_FILE_NAME: test-post-2
-:END:
-This is a Test post 2
 * Publications
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: pubs
 :END:
-** DONE Pub 1
+** DONE lee2023
 :PROPERTIES:
-:EXPORT_FILE_NAME: AAAI-23
-:EXPORT_AUTHOR: Loong Kuan Lee, Nico Piatkowski,François Petitjean, Geoff Webb
+:EXPORT_FILE_NAME: lee23
 :END:
-This is an abstract
+#+begin_src yaml :front_matter_extra t
+status: accepted
+title: Computing Divergences between discrete decomposable models
+author:
+  - family: Lee
+    given: Loong Kuan
+  - family: Piatkowski
+    given: Nico
+  - family: Petitjean
+    given: François
+  - family: Webb
+    given: Geoffrey I.
+venue: Proceedings of the AAAI Conference on Artificial Intelligence
+# DOI: 10.1007/s10618-018-0554-1
+year: 2023
+type: paper-conference
+links:
+  - name: ar𝚾iv
+    link: https://arxiv.org/abs/2112.04583
+#+end_src
+There are many applications that benefit from computing the exact
+divergence between 2 discrete probability measures, including machine
+learning. Unfortunately, in the absence of any assumptions on the
+structure or independencies within these distributions, computing the
+divergence between them is an intractable problem in high dimensions. We
+show that we are able to compute a wide family of functionals and
+divergences, such as the alpha-beta divergence, between two decomposable
+models, i.e~chordal Markov networks, in time exponential to the
+treewidth of these models. The alpha-beta divergence is a family of
+divergences that include popular divergences such as the
+Kullback-Leibler divergence, the Hellinger distance, and the chi-squared
+divergence. Thus, we can accurately compute the exact values of any of
+this broad class of divergences to the extent to which we can accurately
+model the two distributions using decomposable models.
 ** DONE webb18
 :PROPERTIES:
 :EXPORT_FILE_NAME: webb18
 :END:
 #+begin_src yaml :front_matter_extra t
+status: published
 title: Analyzing concept drift and shift from sample data
 author:
   - family: Webb

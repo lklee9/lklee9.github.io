@@ -3,6 +3,8 @@ languageCode = 'en-us'
 title = 'lklee'
 [markup.goldmark.renderer]
   unsafe = true
+[params]
+  author = "Loong Kuan Lee"
 [menu]
   [[menu.main]]
     name = "lklee"

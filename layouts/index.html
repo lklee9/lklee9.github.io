@@ -14,7 +14,12 @@
 
 {{ define "main" }}
     <h1> Publications </h1>
-    {{ range (where .Site.RegularPages "Section" "pubs" ) }}
+    <h2> Accepted </h2>
+    {{ range where (where .Site.RegularPages "Section" "pubs" ) ".Params.status" "accepted" }}
+    {{- partial "pub-item.html" . -}}
+    {{ end }}
+    <h2> Published </h2>
+    {{ range where (where .Site.RegularPages "Section" "pubs" ) ".Params.status" "published" }}
     {{- partial "pub-item.html" . -}}
     {{ end }}
 <!--{{ .Content }} -->
