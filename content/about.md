@@ -3,7 +3,7 @@ title: "About"
 author: ["Loong Kuan Lee"]
 draft: false
 links:
-  email: ["mailto:loong.kuan.lee@gmail.com", "loong.kuan.lee@gmail.com"]
+  email: ["mailto:mail@lklee.dev", "mail@lklee.dev"]
   github: ["https://github.com/lklee9", "lklee9"]
   gitlab: ["https://gitlab.com/lklee", "lklee"]
 ---
