@@ -1,17 +1,10 @@
 <div id="{{anchorize .Params.title}}" itemscope itemtype="http://schema.org/ScholarlyArticle">
     <b>
-        <span itemprop="name" class="pub-title">{{ .Params.title }}</span>
+        <a itemprop="name" class="pub-title" href="{{ .RelPermalink }}">{{ .Params.title }}</a>
     </b>
     <meta itemprop="headline" content="{{ .Params.title }}" />
     <br>
-    {{ if index .Params "venue" }}
     <div>
-        In <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-            <i itemprop="name">{{ .Params.venue }}</i></span>,
-    {{ end }}
-        <meta itemprop="datePublished" content="{{ .Params.year }}"> {{ .Params.year }}.
-    </div>
-    <br>
     {{ range first (sub (len .Params.author) 1) .Params.author }}
     {{ $name := printf "%s %s" .given .family }}
     {{ if eq $name $.Site.Params.author }}
@@ -25,9 +18,15 @@
     {{ range last 1 .Params.author }}
     <span itemprop="author" class="pub-author">{{ .given }} {{ .family }}</span>
     {{ end }}
-    {{- with .Content -}}
-    <div itemprop="abstract" class="pub-abs">{{ . }}</div>
-    {{- end -}}
+    </div>
+    {{ if index .Params "venue" }}
+    <div>
+        In <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+            <i itemprop="name">{{ .Params.venue }}</i></span>,
+    {{ end }}
+        <meta itemprop="datePublished" content="{{ .Params.year }}"> {{ .Params.year }}.
+    </div>
+    <!-- <div itemprop="abstract" class="pub-abs">{{ .Params.abs }}</div> -->
     <div class="pub-links">
         {{- if .Params.DOI -}}
         <span>

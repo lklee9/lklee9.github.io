@@ -1,0 +1,17 @@
+<div>
+    {{ $fns := apply .Params.author "partial" "pub-author.html" "." }}
+    {{ $clean := apply $fns "chomp" "." }}
+    {{ delimit $clean ", " }}
+
+{{ range first (sub (len .Params.author) 1) .Params.author }}
+{{ $name := printf "%s %s" .given .family }}
+{{ if eq $name $.Site.Params.author }}
+<b>
+{{ end }}
+<span itemprop="author" class="pub-author">{{ .given }} {{ .family }},</span>
+{{ if eq $name $.Site.Params.author }}
+</b>
+{{ end }}
+{{ end }}
+
+</div>
