@@ -1,0 +1,229 @@
+:root {
+    /* https://modernfontstacks.com/#font-stacks */
+    --font-sans: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+    --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+    --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    --font-display: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+    --fg: black;
+    --bg: white;
+    --bg-shaded: #efefef;
+    --a-fg: #0077aa;
+    --a-weight: 600;
+    --site-max-width: 960px;
+    --site-min-width: 920px;
+}
+
+body {
+    padding: 2rem 4vw;
+    color: var(--fg);
+    background-color: var(--bg);
+    font-family: var(--font-sans);
+    font-size: 18px;
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    margin: 0 calc(max(calc(100vw - 8vw - 960px), 0em) / 2);
+    line-height: 1.25;
+}
+
+d1 {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: .2rem 1rem; }
+
+dt {
+    text-align: left;
+    float: left; }
+
+dd {
+    text-align: left;
+    float: right;
+    margin-inline-start: 0;
+}
+
+.pub-list-item {
+    padding-bottom: 0.5em;
+}
+
+.external-links {
+    padding-top: 0em;
+}
+
+footer {
+    display: table;
+    text-align: center;
+    width: 100%;
+    max-width: calc(0.8 * var(--site-max-width));
+    border-top: 1px solid #ccc;
+    font-size: 90%;
+    margin-top: 5em;
+    /* margin: 5em auto 0em auto; */
+    padding-top: 2em;
+}
+
+#sidebar-right {
+    max-width: calc(0.6 * var(--site-min-width));
+    padding-bottom: 2em;
+}
+
+#content.main-column {
+    max-width: calc(0.6 * var(--site-min-width));
+}
+
+#content.full-page {
+    max-width: calc(0.8 * var(--site-max-width));
+}
+
+/*Base Mobile Layout*/
+.wrap {
+    width: 90%;
+    margin: 0 auto; }
+
+/*2 Column Layout*/
+@media only screen and (min-width: 920px) {
+    .wrap {
+        width: var(--site-max-width);
+        margin: 0 auto; }
+    #content.main-column {
+        max-width: calc(0.62 * var(--site-max-width));
+        width: calc(100vw - (0.45 * var(--site-max-width)));
+    }
+    #sidebar-right {
+        width: calc(0.3 * var(--site-max-width));
+        float: right;
+    }
+}
+
+p {
+    line-height: 1.4;
+}
+
+/*pub list*/
+.pub-title {
+    line-height: 1.3;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    font-weight: bold !important;
+}
+
+.pub-author {
+    line-height: 1.2; }
+
+.pub-abs {
+    line-height: 1.25 !important;
+    font-size: 15px;
+    color: #323232;
+    text-justify: auto;
+}
+
+.pub-links {
+    padding-top: 0.5rem;
+    margin-bottom: 1em;
+}
+
+.site-title {
+    text-decoration: none;
+    color: inherit !important;
+    font-size: 24px;
+}
+
+a:focus,a:hover {
+    color: var(--a-fg) !important;
+    border-bottom: thin solid var(--a-fg) !important;
+}
+
+a,a:visited {
+    color: var(--fg);
+    border-bottom: thin solid var(--fg);
+    text-decoration: none;
+    font-weight: var(--a-weight);
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    margin-right: 10px;
+    padding-bottom: 0em;
+}
+
+nav > a, nav > a:visited {
+    color: var(--fg);
+    border-bottom: unset;
+    text-decoration: none;
+    font-weight: var(--a-weight);
+    margin-right: 10px;
+}
+
+nav > a.current, nav > a:visited.current {
+    color: var(--fg);
+    border-bottom: thin solid var(--fg);
+    text-decoration: none;
+    font-weight: var(--a-weight);
+}
+
+h3 {
+    margin-top: 0.5em;
+    margin-bottom: 0.25em;
+}
+
+h2 {
+    margin-top: 1em;
+    margin-bottom: 0.0em;
+}
+
+h1 {
+    margin-top: 0.5em;
+    margin-bottom: 0.1em;
+    font-size: 1.5em;
+}
+
+nav {
+    margin-bottom: 1em;
+}
+
+.cvdiv {
+    display: grid;
+    max-width: 860px;
+    grid-template-columns: 6em auto;
+    column-gap: 1em;
+    row-gap: 0.25em;
+    margin: 0em;
+    padding: 0em;
+    align-items: center;
+}
+
+.cvleft{
+    text-align: right;
+    align-self: start;
+}
+
+.cvright{
+    /*width: min(calc(860px - 7.25em),calc(100vw - 7.25em - 8vw));*/
+    width: auto;
+}
+
+.cvsep{
+    float: right;
+    background-color: var(--fg);
+    height: 10px;
+}
+
+.cvtitle {
+    margin: 0.5em;
+    margin-left: 0em;
+    margin-right: 0em;
+}
+
+.cvsubsection{
+    margin: 0em;
+    margin-bottom: 0.25em;
+}
+
+.cventry {
+    margin-bottom: 0.75em;
+}
+
+.cvlist {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+}
