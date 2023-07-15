@@ -67,7 +67,9 @@
     ("html" `((h4 (@ (class "cvtitle cvleft"))
                   ,(string-capitalize status))
               ,@(map
-                 (lambda (x) (list x '(h4 (@ (class "cvleft")) " ") ))
+                 (lambda (x)
+                   (list `(div (@ (class "cvright")) ,x)
+                         '(h4 (@ (class "cvleft")) " ") ))
                  (html-list-items pubs me))
               )
      )
