@@ -18,7 +18,7 @@
                                (theme theme-publications)
                                (theme-redirect theme-redirect)
                                (collection-home "index.html")
-                               (pubs-root-path "/pubs/")
+                               (pubs-root-path "/pub/")
                                (bib-db-json "./assets/pubs.json")
                                (pubs '()))
   (lambda (site _)

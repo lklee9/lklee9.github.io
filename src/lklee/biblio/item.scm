@@ -38,7 +38,7 @@
 (define (html-title pub)
   (define title (assoc-ref pub 'title))
   (define pub-page-link
-    (string-append "/pubs/" (assoc-ref pub 'id) ".html"))
+    (string-append "/pub/" (assoc-ref pub 'id) ".html"))
   (if (assoc-ref pub 'web-page)
       `(span (@ (itemprop "name") (class "pub-title"))
              (a (@ (href ,pub-page-link)
@@ -81,7 +81,7 @@
   (define pub-links (if (assoc-ref pub 'links)
                         (assoc-ref pub 'links) '()))
   (define pub-links-with-doi
-    (acons (string-append "DOI: " (assoc-ref pub 'doi))
+    (acons (string-append "DOI")
            (string-append "https://doi.org/" (assoc-ref pub 'doi))
            pub-links))
   (define (fmt-link link)
