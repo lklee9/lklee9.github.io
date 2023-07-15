@@ -31,6 +31,7 @@
 (define pubs
   '(("lee2023" .
      ((status . "published")
+      (path . "2023-aaai")
       (redirects . (("/code" . "https://gitlab.com/lklee/comp-div-dm")))
       (links . (("pdf" . "/assets/pdf/lee2023.pdf")
                 ("code" . "https://gitlab.com/lklee/comp-div-dm")
@@ -38,6 +39,7 @@
       (web-page . ())))
     ("webb2018" .
      ((status . "published")
+      (path . "2018-dmkd")
       (links . (("pdf" . "/assets/pdf/webb2018.pdf")
                 ("code" . "https://github.com/lklee9/DriftMapper")))))
     ))

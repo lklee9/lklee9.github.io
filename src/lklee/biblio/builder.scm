@@ -23,7 +23,7 @@
                                (pubs '()))
   (lambda (site _)
     (define (pub->path pub) (string-append pubs-root-path
-                                           (assoc-ref pub 'id)))
+                                           (assoc-ref pub 'path)))
     (define (pub->post pub)
       (make-post (pub->path pub)
                  pub (cond-return (assoc-ref pub 'web-page) "")))
