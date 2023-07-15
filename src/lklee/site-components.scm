@@ -13,7 +13,7 @@
                   ,(if redirect-url
                        `(content ,(string-append "100;URL=" redirect-url))
                        '(content
-                         "text/html;charset=UTF-8;width=device-width"))
+                         "width=device-width, initial-scale=1.0"))
                   (content "width=device-width")
                   (initial-scale "1.0")))
          (link (@ (rel "stylesheet")

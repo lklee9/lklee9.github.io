@@ -110,6 +110,6 @@
                        (sxml->tex tree port tex-sym-dict))
                      ))
     (list cv-html cv-tex
-          (pdflatex-artifact uri-base-path "cv.tex")
+          ;; (pdflatex-artifact uri-base-path "cv.tex")
           )
     ))
