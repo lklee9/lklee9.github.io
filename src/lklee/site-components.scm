@@ -43,7 +43,7 @@
              "Guile Scheme")
           "." (br) (br)
           "Last modified: "
-          (a (@ (href "https://gitlab.com/lklee/lklee.dev"))
+          (a (@ (href "https://github.com/lklee9/lklee9.github.io"))
              ,(date->string (current-date) "~1"))))
 
 (define (ext-link site username link)
