@@ -11,7 +11,7 @@
                   ,(if redirect-url '(http-equiv "refresh")
                        '(http-equiv "content-type"))
                   ,(if redirect-url
-                       `(content ,(string-append "100;URL=" redirect-url))
+                       `(content ,(string-append "0;URL=" redirect-url))
                        '(content
                          "width=device-width, initial-scale=1.0"))
                   (content "width=device-width")

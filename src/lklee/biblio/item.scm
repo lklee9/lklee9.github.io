@@ -38,7 +38,7 @@
 (define (html-title pub)
   (define title (assoc-ref pub 'title))
   (define pub-page-link
-    (string-append "/pub/" (assoc-ref pub 'id) ".html"))
+    (string-append "/pub/" (assoc-ref pub 'path) ".html"))
   (if (assoc-ref pub 'web-page)
       `(span (@ (itemprop "name") (class "pub-title"))
              (a (@ (href ,pub-page-link)
