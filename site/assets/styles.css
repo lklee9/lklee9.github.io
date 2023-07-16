@@ -1,7 +1,7 @@
 :root {
     /* https://modernfontstacks.com/#font-stacks */
     --font-sans: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
-    --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+    --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
     --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     --font-block-serif: Rockwell, 'Rockwell Nova', 'Roboto Slab', 'Sitka Small','DejaVu Serif', serif;
     --font-display: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
