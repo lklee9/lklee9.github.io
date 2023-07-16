@@ -8,7 +8,7 @@
   #:use-module (lklee biblio)
   #:use-module (lklee biblio item)
   #:use-module (lklee site theme)
-  #:use-module ((lklee site-components) #:prefix component:)
+  #:use-module ((lklee site components) #:prefix component:)
   #:export (builder-publications))
 
 

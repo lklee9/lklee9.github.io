@@ -1,4 +1,5 @@
 (define-module (lklee cv definitions)
+  #:use-module (srfi srfi-1)
   #:use-module (ice-9 curried-definitions)
   #:use-module (ice-9 match)
   #:use-module (lklee biblio item)
@@ -66,11 +67,12 @@
   (match ext-target
     ("html" `((h4 (@ (class "cvtitle cvleft"))
                   ,(string-capitalize status))
-              ,@(map
+              ,@(list-tail (append-map
                  (lambda (x)
-                   (list `(div (@ (class "cvright")) ,x)
-                         '(h4 (@ (class "cvleft")) " ") ))
-                 (html-list-items pubs me))
+                   (list '(h4 (@ (class "cvleft")) " ")
+                         `(div (@ (class "cvright")) ,x)
+                         ))
+                 (html-list-items pubs me)) 1)
               )
      )
     (else `((subsection ,(string-capitalize status))

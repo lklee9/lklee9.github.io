@@ -28,9 +28,10 @@
            (itemtype "http://schema.org/ScholarlyArticle")
            (class "pub-list-item"))
         ,(html-title pub)
-        (div ,@(list-tail (fold-right
+        (div (@ (class "pub-authors"))
+             ,@(list-tail (fold-right
                            (lambda (ele res) (list ", " ele res))
-                           '() (html-authors pub me)) 1))
+                           '() (html-authors pub me)) 1) ".")
         ,(html-venue pub)
         ,(html-links pub)
         ))

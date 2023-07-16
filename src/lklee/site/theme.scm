@@ -3,7 +3,7 @@
   #:use-module (haunt builder blog)
   #:use-module (haunt post)
   #:use-module (haunt site)
-  #:use-module ((lklee site-components) #:prefix component:)
+  #:use-module ((lklee site components) #:prefix component:)
   #:use-module (lklee biblio item)
   #:use-module (lklee utils)
   #:export (layout-main
@@ -12,30 +12,33 @@
 
 
 (define (layout-main site title body)
-  `((doctype "html")
-    ,(component:html-head (string-append (get-me site) " — " title))
-     (header
-      (h1 ,(get-me site))
-      ,(component:html-header-nav title)
-      )
+  `((doctype  "html")
+    (html (@ (lang "en"))
+          ,(component:html-head
+            (string-append (get-me site) " — " title))
+          (header
+           (h1 ,(get-me site))
+           ,(component:html-header-nav title)
+           )
 
-     (body ,body)
-     ,component:html-footer
-    ))
+          (body ,body)
+          ,component:html-footer
+          )))
 
 
 ;; theme-redirect
 (define (layout-redirect site title body)
   `((doctype "html")
-    ,(component:html-head
-      (string-append (get-me site) " — " title)
-      #:redirect-url body)
-    (body "Redirecting to external site: "
-          (a (@ (href ,body)) ,body)
-          " ......" (br)
-          "Click on the link to be redirected manually.")
-    ,component:html-footer
-    ))
+    (html (@ (lang "en"))
+          ,(component:html-head
+            (string-append (get-me site) " — " title)
+            #:redirect-url body)
+          (body "Redirecting to external site: "
+                (a (@ (href ,body)) ,body)
+                " ......" (br)
+                "Click on the link to be redirected manually.")
+          ,component:html-footer
+          )))
 
 (define (post-template-redirect post)
   (post-sxml post))
@@ -70,7 +73,8 @@
    (define me (assoc-ref (post-metadata post) 'author))
    `((div (@ (id "content") (class "full-page"))
           (h2 ,(post-ref post 'title))
-          (div ,@(list-tail
+          (div (@ (class "pub-authors"))
+               ,@(list-tail
                   (fold-right
                    (lambda (ele res) (list ", " ele res))
                    '() (html-authors

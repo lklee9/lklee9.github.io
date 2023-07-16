@@ -9,7 +9,7 @@
              (haunt site)
              (lklee biblio)
              (lklee site theme)
-             ((lklee site-components) #:prefix component:)
+             ((lklee site components) #:prefix component:)
              (lklee utils)
              (lklee biblio builder)
              (lklee cv builder)
