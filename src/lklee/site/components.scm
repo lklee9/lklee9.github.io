@@ -48,7 +48,8 @@
              ,(date->string (current-date) "~1"))))
 
 (define (ext-link site username link)
-  `((dt ,site) (dd (a (@ (href ,link) (align "right")) ,username))))
+  `((dt ,site) (dd (a (@ (rel "me") (href ,link) (align "right"))
+                      ,username))))
 
 (define (ext-links . links)
   `(d1 (@ (class "external-links"))
@@ -57,11 +58,16 @@
 
 (define html-side-info
   `(div (@ (id "sidebar-right"))
-        (p "I am currently a PhD candidate at Monash university awaiting
-the results for my thesis. My areas of interest include concept drift
-and probabilistic graphical models.")
+        (p "
+I am currently a research assistant at Fraunhofer IAIS in Germany
+working on Quantum Machine Learning. Prior to that, I did my PhD at
+Monash University in Australia where I developed methods for
+computing divergences in probabilistic graphical models. My
+areas of interest include quantum computing, concept drift, and
+probabilistic graphical models.")
         ,(ext-links
           '("email" "mail@lklee.dev" "mailto:mail@lklee.dev")
           '("github" "lklee9" "https://github.com/lklee9")
-          '("gitlab" "lklee" "https://gitlab.com/lklee")))
+          '("gitlab" "lklee" "https://gitlab.com/lklee")
+          '("mastodon" "@lklee@sigmoid.social" "https://sigmoid.social/@lklee")))
   )
