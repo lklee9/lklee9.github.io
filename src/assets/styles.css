@@ -16,7 +16,7 @@
     --body-max-width: 36rem;
     --side-max-width: 16rem;
     --side-padding: 2rem;
-    --full-font-size: 20px;
+    --full-font-size: 16px;
     font-size: min(3.5vw, var(--full-font-size));
     font-family: var(--font-serif);
     color: var(--fg);
