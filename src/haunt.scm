@@ -51,6 +51,18 @@
           )))
     (map merge biblio)))
 
+(define (merge-pubs-biblio pubs biblio)
+  (let (( merge
+          (lambda (pub)
+            (let* ((cur-id (car pub))
+                   (cur-pub (cdr pub))
+                   (cur-meta (find (lambda (meta)
+                                     (equal? (assoc-ref meta 'id) cur-id))
+                                   biblio)))
+            (fold acons cur-meta (map car cur-pub) (map cdr cur-pub)))
+          )))
+    (map merge pubs)))
+
 (define pubs-full (merge-pubs-biblio
                    pubs (file->biblio bib-db-json)))
 
