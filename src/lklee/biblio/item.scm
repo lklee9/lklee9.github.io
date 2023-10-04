@@ -64,27 +64,46 @@
   (let* ((type (assoc-ref pub 'type))
          (comments (if (assoc-ref pub 'comments)
                        (assoc-ref pub 'comments) "")))
-    (if (equal? type "preprint")
-        `(div (i "Preprint") ", " ,(assoc-ref pub 'year) "." ,@comments)
-        `(div "In "
-              (span (@ (itemprop "publisher")
+    (cond
+     ((equal? type "private") `((i ,comments)))
+     ((equal? type "preprint")
+             `(div (i "Preprint") ", " ,(assoc-ref pub 'year)
+                   ". " ,comments))
+     (else
+      `(div "In "
+            (span (@ (itemprop "publisher")
                      (itemtype "http://schema.org/Organization"))
-                    (i (@ (itemprop "name")) ,(assoc-ref pub 'venue)))
-              ", "
-              (meta (@ (itemprop "datePublished")
+                  (i (@ (itemprop "name")) ,(assoc-ref pub 'venue)))
+            ", "
+            (meta (@ (itemprop "datePublished")
                      (content ,(assoc-ref pub 'year))))
-              ,(assoc-ref pub 'volume) "(" ,(assoc-ref pub 'issue) "):"
-              ,(assoc-ref pub 'page) ", "
-              ,(assoc-ref pub 'year) ". " ,comments)
-  )))
+            ,(assoc-ref pub 'volume) "(" ,(assoc-ref pub 'issue) "):"
+            ,(assoc-ref pub 'page) ", "
+            ,(assoc-ref pub 'year) ". " ,comments)))
+    ;; (if (equal? type "preprint")
+  ;;       `(div (i "Preprint") ", " ,(assoc-ref pub 'year) ". " ,comments)
+  ;;       `(div "In "
+  ;;             (span (@ (itemprop "publisher")
+  ;;                    (itemtype "http://schema.org/Organization"))
+  ;;                   (i (@ (itemprop "name")) ,(assoc-ref pub 'venue)))
+  ;;             ", "
+  ;;             (meta (@ (itemprop "datePublished")
+  ;;                    (content ,(assoc-ref pub 'year))))
+  ;;             ,(assoc-ref pub 'volume) "(" ,(assoc-ref pub 'issue) "):"
+  ;;             ,(assoc-ref pub 'page) ", "
+  ;;             ,(assoc-ref pub 'year) ". " ,comments)
+  ;; )
+    ))
 
 (define (html-links pub)
   (define pub-links (if (assoc-ref pub 'links)
                         (assoc-ref pub 'links) '()))
   (define pub-links-with-doi
-    (acons (string-append "DOI")
-           (string-append "https://doi.org/" (assoc-ref pub 'doi))
-           pub-links))
+    (if (assoc-ref pub 'doi)
+        (acons (string-append "DOI")
+               (string-append "https://doi.org/" (assoc-ref pub 'doi))
+               pub-links)
+        pub-links))
   (define (fmt-link link)
     `((span (a (@ (class "button") (href ,(cdr link))) ,(car link))) (" ")))
   `(div (@ (class "pub-links")) ,@(map fmt-link pub-links-with-doi))
