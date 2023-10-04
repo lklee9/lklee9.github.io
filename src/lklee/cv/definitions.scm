@@ -61,9 +61,9 @@
     ("html" `(li ,@eles))
     (else `((item) ,@eles))))
 
-
 (define* ((cv-pub-list ext-target) me
           #:optional (pubs '()) (status "published")  )
+  (define pubs-with-status (filter-pubs-by-status pubs status))
   (match ext-target
     ("html" `((h4 (@ (class "cvtitle cvleft"))
                   ,(string-capitalize status))
@@ -72,12 +72,12 @@
                    (list '(h4 (@ (class "cvleft")) " ")
                          `(div (@ (class "cvright")) ,x)
                          ))
-                 (html-list-items pubs me)) 1)
+                 (html-list-items pubs-with-status me)) 1)
               )
      )
     (else `((subsection ,(string-capitalize status))
             (begin list "" "\\setlength{\\leftmargin}{6.6em}"
-                 ,@(tex-list-items pubs))))
+                 ,@(tex-list-items pubs-with-status))))
     )
   )
 
