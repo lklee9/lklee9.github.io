@@ -130,7 +130,7 @@ p {
 .pub-title {
     line-height: 1.4;
     display: block;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
     font-weight: bold !important;
 }
 
@@ -198,7 +198,7 @@ nav > a.current, nav > a:visited.current {
 h3 {
     font-family: var(--font-block-serif);
     margin-top: 0.5em;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.5em;
 }
 
 h2 {
