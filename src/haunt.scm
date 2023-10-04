@@ -66,7 +66,7 @@
       #:builders (list
                   ;; (blog #:theme theme-main
                   ;;            #:collections `(("home" "index.html" ,posts/reverse-chronological)))
-                  (static-directory "imgs")
+                  ;; (static-directory "imgs")
                   (static-directory "assets")
                   (builder-publications
                    #:theme theme-publications
@@ -76,6 +76,7 @@
                    #:content (cv-content pubs-full)
                    #:pubs pubs-full
                    #:list-of-symbol-definitions symbol-definitions)
+
                   ;; (atom-feed)
                   ;; (atom-feeds-by-tag)
                   ))
