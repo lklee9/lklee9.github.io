@@ -60,10 +60,8 @@
   `(div (@ (id "sidebar-right"))
         (p "
 I am currently a research assistant at Fraunhofer IAIS in Germany
-working on Quantum Machine Learning. Prior to that, I did my PhD at
-Monash University in Australia where I developed methods for
-computing divergences in probabilistic graphical models. My
-areas of interest include quantum computing, concept drift, and
+working on Quantum Machine Learning. My
+areas of interest include quantum machine learning, concept drift, and
 probabilistic graphical models.")
         ,(ext-links
           '("email" "mail@lklee.dev" "mailto:mail@lklee.dev")
