@@ -94,10 +94,11 @@
 
 
 (site #:title "lklee"
-      #:domain "example.com"
+      #:domain "lklee.dev"
       #:build-directory "../site"
       #:default-metadata
       '((author . "Loong Kuan Lee")
+        (author-cn . "李隆宽")
         (email  . "mail@lklee.dev"))
       #:readers (list commonmark-reader)
       #:builders (list

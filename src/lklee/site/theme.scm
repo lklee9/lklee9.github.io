@@ -17,7 +17,7 @@
           ,(component:html-head
             (string-append (get-me site) " — " title))
           (header
-           (h1 ,(get-me site))
+           (h1 ,(get-me site) " (" ,(get-me-cn site) ")")
            ,(component:html-header-nav title)
            )
 
