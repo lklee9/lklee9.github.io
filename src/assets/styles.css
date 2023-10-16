@@ -196,20 +196,20 @@ nav > a.current, nav > a:visited.current {
 }
 
 h3 {
-    font-family: var(--font-block-serif);
+    font-family: var(--font-sans);
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 }
 
 h2 {
-    font-family: var(--font-block-serif);
+    font-family: var(--font-sans);
     line-height: 1.1;
     margin-top: 1em;
     margin-bottom: 0.5em;
 }
 
 h1 {
-    font-family: var(--font-block-serif);
+    font-family: var(--font-sans);
     margin-top: 0.5em;
     margin-bottom: 0.2em;
     font-size: 1.5em;
