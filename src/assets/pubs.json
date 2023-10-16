@@ -1,4 +1,157 @@
 [
-  {"id":"lee2023","abstract":"There are many applications that benefit from computing the exact divergence between 2 discrete probability measures, including machine learning. Unfortunately, in the absence of any assumptions on the structure or independencies within these distributions, computing the divergence between them is an intractable problem in high dimensions. We show that we are able to compute a wide family of functionals and divergences, such as the alpha-beta divergence, between two decomposable models, i.e. chordal Markov networks, in time exponential to the treewidth of these models. The alpha-beta divergence is a family of divergences that include popular divergences such as the Kullback-Leibler divergence, the Hellinger distance, and the chi-squared divergence. Thus, we can accurately compute the exact values of any of this broad class of divergences to the extent to which we can accurately model the two distributions using decomposable models.","accessed":{"date-parts":[[2023,6,28]]},"author":[{"family":"Lee","given":"Loong Kuan"},{"family":"Piatkowski","given":"Nico"},{"family":"Petitjean","given":"François"},{"family":"Webb","given":"Geoffrey I."}],"citation-key":"lee2023","container-title":"Proceedings of the AAAI Conference on Artificial Intelligence","DOI":"10.1609/aaai.v37i10.26443","ISSN":"2374-3468","issue":"10","issued":{"date-parts":[[2023,6,26]]},"language":"en","license":"Copyright (c) 2023 Association for the Advancement of Artificial Intelligence","number":"10","page":"12243-12251","source":"ojs.aaai.org","title":"Computing Divergences between Discrete Decomposable Models","type":"article-journal","URL":"https://ojs.aaai.org/index.php/AAAI/article/view/26443","volume":"37"},
-  {"id":"webb2018","abstract":"Concept drift and shift are major issues that greatly affect the accuracy and reliability of many real-world applications of machine learning. We propose a new data mining task, concept drift mapping—the description and analysis of instances of concept drift or shift. We argue that concept drift mapping is an essential prerequisite for tackling concept drift and shift. We propose tools for this purpose, arguing for the importance of quantitative descriptions of drift and shift in marginal distributions. We present quantitative concept drift mapping techniques, along with methods for visualizing their results. We illustrate their effectiveness for real-world applications across energy-pricing, vegetation monitoring and airline scheduling.","accessed":{"date-parts":[[2018,9,16]]},"author":[{"family":"Webb","given":"Geoffrey I."},{"family":"Lee","given":"Loong Kuan"},{"family":"Goethals","given":"Bart"},{"family":"Petitjean","given":"François"}],"citation-key":"webb2018","container-title":"Data Mining and Knowledge Discovery","container-title-short":"Data Min Knowl Disc","DOI":"10.1007/s10618-018-0554-1","ISSN":"1573-756X","issue":"5","issued":{"date-parts":[[2018,9,1]]},"language":"en","license":"All rights reserved","page":"1179-1199","source":"Springer Link","title":"Analyzing concept drift and shift from sample data","type":"article-journal","URL":"https://doi.org/10.1007/s10618-018-0554-1","volume":"32"}
+	{
+		"id": "webb2018",
+		"type": "article-journal",
+		"abstract": "Concept drift and shift are major issues that greatly affect the accuracy and reliability of many real-world applications of machine learning. We propose a new data mining task, concept drift mapping—the description and analysis of instances of concept drift or shift. We argue that concept drift mapping is an essential prerequisite for tackling concept drift and shift. We propose tools for this purpose, arguing for the importance of quantitative descriptions of drift and shift in marginal distributions. We present quantitative concept drift mapping techniques, along with methods for visualizing their results. We illustrate their effectiveness for real-world applications across energy-pricing, vegetation monitoring and airline scheduling.",
+		"container-title": "Data Mining and Knowledge Discovery",
+		"DOI": "10.1007/s10618-018-0554-1",
+		"ISSN": "1573-756X",
+		"issue": "5",
+		"journalAbbreviation": "Data Min Knowl Disc",
+		"language": "en",
+		"license": "All rights reserved",
+		"page": "1179-1199",
+		"source": "Springer Link",
+		"title": "Analyzing concept drift and shift from sample data",
+		"URL": "https://doi.org/10.1007/s10618-018-0554-1",
+		"volume": "32",
+		"author": [
+			{
+				"family": "Webb",
+				"given": "Geoffrey I."
+			},
+			{
+				"family": "Lee",
+				"given": "Loong Kuan"
+			},
+			{
+				"family": "Goethals",
+				"given": "Bart"
+			},
+			{
+				"family": "Petitjean",
+				"given": "François"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2018",
+					9,
+					16
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					9,
+					1
+				]
+			]
+		}
+	},
+	{
+		"id": "lee2023",
+		"type": "article-journal",
+		"abstract": "There are many applications that benefit from computing the exact divergence between 2 discrete probability measures, including machine learning. Unfortunately, in the absence of any assumptions on the structure or independencies within these distributions, computing the divergence between them is an intractable problem in high dimensions. We show that we are able to compute a wide family of functionals and divergences, such as the alpha-beta divergence, between two decomposable models, i.e. chordal Markov networks, in time exponential to the treewidth of these models. The alpha-beta divergence is a family of divergences that include popular divergences such as the Kullback-Leibler divergence, the Hellinger distance, and the chi-squared divergence. Thus, we can accurately compute the exact values of any of this broad class of divergences to the extent to which we can accurately model the two distributions using decomposable models.",
+		"container-title": "Proceedings of the AAAI Conference on Artificial Intelligence",
+		"DOI": "10.1609/aaai.v37i10.26443",
+		"ISSN": "2374-3468",
+		"issue": "10",
+		"language": "en",
+		"license": "Copyright (c) 2023 Association for the Advancement of Artificial Intelligence",
+		"note": "number: 10",
+		"page": "12243-12251",
+		"source": "ojs.aaai.org",
+		"title": "Computing divergences between discrete decomposable models",
+		"URL": "https://ojs.aaai.org/index.php/AAAI/article/view/26443",
+		"volume": "37",
+		"author": [
+			{
+				"family": "Lee",
+				"given": "Loong Kuan"
+			},
+			{
+				"family": "Piatkowski",
+				"given": "Nico"
+			},
+			{
+				"family": "Petitjean",
+				"given": "François"
+			},
+			{
+				"family": "Webb",
+				"given": "Geoffrey I."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					6,
+					28
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					6,
+					26
+				]
+			]
+		}
+	},
+	{
+		"id": "lee2023a",
+		"type": "article",
+		"abstract": "The ability to compute the exact divergence between two high-dimensional distributions is useful in many applications but doing so naively is intractable. Computing the alpha-beta divergence -- a family of divergences that includes the Kullback-Leibler divergence and Hellinger distance -- between the joint distribution of two decomposable models, i.e chordal Markov networks, can be done in time exponential in the treewidth of these models. However, reducing the dissimilarity between two high-dimensional objects to a single scalar value can be uninformative. Furthermore, in applications such as supervised learning, the divergence over a conditional distribution might be of more interest. Therefore, we propose an approach to compute the exact alpha-beta divergence between any marginal or conditional distribution of two decomposable models. Doing so tractably is non-trivial as we need to decompose the divergence between these distributions and therefore, require a decomposition over the marginal and conditional distributions of these models. Consequently, we provide such a decomposition and also extend existing work to compute the marginal and conditional alpha-beta divergence between these decompositions. We then show how our method can be used to analyze distributional changes by first applying it to a benchmark image dataset. Finally, based on our framework, we propose a novel way to quantify the error in contemporary superconducting quantum computers. Code for all experiments is available at: https://lklee.dev/pub/2023-icdm/code",
+		"DOI": "10.48550/arXiv.2310.09129",
+		"license": "All rights reserved",
+		"note": "arXiv:2310.09129 [cs]",
+		"number": "arXiv:2310.09129",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Computing Marginal and Conditional Divergences between Decomposable Models with Applications",
+		"URL": "http://arxiv.org/abs/2310.09129",
+		"author": [
+			{
+				"family": "Lee",
+				"given": "Loong Kuan"
+			},
+			{
+				"family": "Webb",
+				"given": "Geoffrey I."
+			},
+			{
+				"family": "Schmidt",
+				"given": "Daniel F."
+			},
+			{
+				"family": "Piatkowski",
+				"given": "Nico"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					10,
+					16
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					10,
+					13
+				]
+			]
+		}
+	}
 ]
