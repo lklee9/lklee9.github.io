@@ -60,7 +60,7 @@
   `(div (@ (id "sidebar-right"))
         (p "
 I am currently a research assistant at Fraunhofer IAIS in Germany
-working on Quantum Machine Learning. My
+working on quantum optimisation and machine learning. My
 areas of interest include quantum machine learning, concept drift, and
 probabilistic graphical models.")
         ,(ext-links
