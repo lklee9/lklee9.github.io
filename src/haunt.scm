@@ -17,42 +17,20 @@
              (lklee cv content)
              )
 
-;;(pub-item-venue pub-tmp )
-
-;; (pub-list-item pub-tmp (site #:default-metadata
-;;                              '((author . "Loong Kuan Lee"))))
-
-
-
 (define me "Loong Kuan Lee")
 (define bib-db-json "./assets/pubs.json")
 
 
 (define pubs
-  '(;; ("lee2023a" .
-    ;;  ((type . "private")
-    ;;   (title . "Computing Marginal and Conditional Divergences\
-    ;;             between Decomposable Models with Applications")
-    ;;   (authors . (((gn . "Loong Kuan") (fn . "Lee"))
-    ;;               ((gn . "Geoffrey I.") (fn . "Webb"))
-    ;;               ((gn . "Daniel") (fn . "Schmidt"))
-    ;;               ((gn . "Nico") (fn . "Piatowski"))))
-    ;;   (year . "2023")
-    ;;   (status . "accepted")
-    ;;   (path . "2023-icdm")
-    ;;   (redirects . (("/code" . "https://gitlab.com/lklee/icdm2023")))
-    ;;   ;; (links . (("pdf" . "/assets/pdf/lee2023.pdf")
-    ;;   ;;           ("code" . "https://gitlab.com/lklee/comp-div-dm")
-    ;;   ;;           ("poster" . "/assets/pdf/lee2023-poster.pdf")))
-    ;;   (links . (("code" . "https://gitlab.com/lklee/icdm2023")))
-    ;;   (comments . "Accepted to ICDM 2023")))
+  '(
     ("lee2023a" .
      (
-      (status . "accepted")
+      (status . "published")
       (path . "2023-icdm")
       (redirects . (("/code" . "https://gitlab.com/lklee/icdm2023")))
-      (links . (("code" . "https://gitlab.com/lklee/icdm2023")))
-      (comments . "Accepted to ICDM 2023")
+      (links . (("code" . "https://gitlab.com/lklee/icdm2023")
+                ("pdf" . "https://arxiv.org/pdf/2310.09129v1")))
+      ;; (comments . "Accepted to ICDM 2023")
       ))
     ("lee2023" .
      ((status . "published")
