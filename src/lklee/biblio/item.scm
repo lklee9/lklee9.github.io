@@ -77,7 +77,11 @@
             ", "
             (meta (@ (itemprop "datePublished")
                      (content ,(assoc-ref pub 'year))))
-            ,(assoc-ref pub 'volume) "(" ,(assoc-ref pub 'issue) "):"
+            ,(if (and (assoc-ref pub 'volume) (assoc-ref pub 'issue))
+               `(,(assoc-ref pub 'volume) "("
+                 ,(assoc-ref pub 'issue) "):")
+               '())
+            ;; ,(assoc-ref pub 'volume) "(" ,(assoc-ref pub 'issue) "):"
             ,(assoc-ref pub 'page) ", "
             ,(assoc-ref pub 'year) ". " ,comments)))
     ;; (if (equal? type "preprint")
