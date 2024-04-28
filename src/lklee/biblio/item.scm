@@ -21,7 +21,7 @@
 
 ;; html
 (define (html-list-items pubs me)
-  (map (lambda (pub) (html-list-item pub me)) pubs))
+  (map (lambda (pub) `(,(html-list-item pub me) (br))) pubs))
 
 (define (html-list-item pub me)
   `(div (@ (itemscope "")
