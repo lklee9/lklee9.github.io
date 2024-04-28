@@ -94,8 +94,9 @@ dd {
     margin-inline-start: 0;
 }
 
-.pub-list-item {
-    padding-bottom: 0.5em;
+br {
+    display: block;
+    margin-bottom: 0.5em;
 }
 
 .external-links {
