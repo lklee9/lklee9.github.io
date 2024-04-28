@@ -29,25 +29,29 @@
                  pub (cond-return (assoc-ref pub 'web-page) "")))
     (define posts (map pub->post pubs))
     (define (post->page post)
-      (serialized-artifact (string-append (post-file-name post) ".html")
-                           (render-post theme site post)
-                           sxml->html)
+      (serialized-artifact
+       (string-append (post-file-name post) ".html")
+       (with-layout theme site (assoc-ref (post-metadata post) 'title)
+                    (render-post theme site post))
+       sxml->html)
       )
     (define (pub->redirect pub)
       (map
        (lambda (redirect)
          (serialized-artifact
           (string-append (pub->path pub) (car redirect) ".html")
-          (render-post theme-redirect site
-                       (make-post (pub->path pub) pub (cdr redirect))
-                       )
+          (with-layout
+           theme site (assoc-ref pub 'title)
+           (render-post theme-redirect site
+                        (make-post (pub->path pub) pub (cdr redirect))))
           sxml->html))
        (assoc-ref pub 'redirects)))
     (define (pubs->page posts)
-      (serialized-artifact collection-home
-                           (render-collection theme site "home"
-                                              posts "")
-                           sxml->html))
+      (serialized-artifact
+       collection-home
+       (with-layout theme site "home"
+                    (render-collection theme site "home" posts ""))
+       sxml->html))
     (append (map post->page
                  (filter (lambda (x)
                            (assoc-ref (post-metadata x) 'web-page))
