@@ -94,6 +94,11 @@ dd {
     margin-inline-start: 0;
 }
 
+br {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
 .external-links {
     padding-top: 0em;
 }
