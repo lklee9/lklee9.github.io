@@ -109,11 +109,9 @@ footer {
     width: 100%;
     /* max-width: calc(0.8 * var(--site-max-width)); */
     max-width: var(--body-max-width);
-    border-top: 1px solid #ccc;
     font-size: 90%;
     margin-top: 3em;
     /* margin: 5em auto 0em auto; */
-    padding-top: 2em;
 }
 
 /*Base Mobile Layout*/
@@ -186,7 +184,6 @@ nav > a, nav > a:visited {
     border-bottom: unset;
     text-decoration: none;
     font-weight: var(--a-weight);
-    margin-right: 10px;
 }
 
 nav > a.current, nav > a:visited.current {

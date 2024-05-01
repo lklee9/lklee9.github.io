@@ -27,7 +27,8 @@
   `(nav (a (@ (class ,(if (equal? cur-page-title "home")
                          "current" "not-current"))
              (href "/") (title "Home"))
-          "Home")
+           "Home")
+        " | "
        (a (@ (class ,(if (equal? cur-page-title "cv")
                          "current" "not-current"))
              (href "/cv/cv.html") (title "CV"))
@@ -36,16 +37,18 @@
 
 (define html-footer
   `(footer (@ (class "full-page"))
-          "Made with the static site generator "
-          (a (@ (href "https://dthompson.us/projects/haunt.html"))
-             "Haunt")
-          " written in "
-          (a (@ (href "https://gnu.org/software/guile"))
-             "Guile Scheme")
-          "." (br) (br)
-          "Last modified: "
-          (a (@ (href "https://github.com/lklee9/lklee9.github.io"))
-             ,(date->string (current-date) "~1"))))
+           (hr (@ (size "1") (color "#c8c8c8")
+                  (style "margin-bottom: 2em;")))
+           "Made with the static site generator "
+           (a (@ (href "https://dthompson.us/projects/haunt.html"))
+              "Haunt")
+           " written in "
+           (a (@ (href "https://gnu.org/software/guile"))
+              "Guile Scheme")
+           "." (br) (br)
+           "Last modified: "
+           (a (@ (href "https://github.com/lklee9/lklee9.github.io"))
+              ,(date->string (current-date) "~1"))))
 
 (define (ext-link site username link)
   `((dt ,site) (dd (a (@ (rel "me") (href ,link) (align "right"))
