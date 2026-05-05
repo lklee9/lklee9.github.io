@@ -14,6 +14,8 @@
 
 ;; buider
 
+;; Return a Haunt builder that generates the publications index, optional
+;; publication detail pages, and redirect pages for external resources.
 (define* (builder-publications #:key
                                (theme theme-publications)
                                (theme-redirect theme-redirect)
@@ -22,12 +24,15 @@
                                (bib-db-json "./assets/pubs.json")
                                (pubs '()))
   (lambda (site _)
+    ;; Build the URI prefix used for a publication and its related pages.
     (define (pub->path pub) (string-append pubs-root-path
                                            (assoc-ref pub 'path)))
+    ;; Wrap a publication metadata alist in a Haunt post record.
     (define (pub->post pub)
       (make-post (pub->path pub)
                  pub (cond-return (assoc-ref pub 'web-page) "")))
     (define posts (map pub->post pubs))
+    ;; Render a publication post as its standalone HTML page.
     (define (post->page post)
       (serialized-artifact
        (string-append (post-file-name post) ".html")
@@ -35,6 +40,7 @@
                     (render-post theme site post))
        sxml->html)
       )
+    ;; Build lightweight redirect pages for publication-specific external links.
     (define (pub->redirect pub)
       (map
        (lambda (redirect)
@@ -46,6 +52,7 @@
                         (make-post (pub->path pub) pub (cdr redirect))))
           sxml->html))
        (assoc-ref pub 'redirects)))
+    ;; Render the top-level publications listing page.
     (define (pubs->page posts)
       (serialized-artifact
        collection-home

@@ -8,6 +8,7 @@
   #:use-module (lklee artifact)
   #:export (builder-cv))
 
+;; Build the SXML representation of the TeX document used to typeset the CV.
 (define* (layout-cv-tex body #:key
               (bib-db-path "../assets/pubs.bib")
                 (gn "Loong Kuan")
@@ -59,6 +60,8 @@
             (bibliographystyle plain))
            )))
 
+;; Wrap the CV body in the site's HTML layout and add a download link for
+;; the generated PDF version.
 (define (layout-cv-html site title body)
   (layout-main site title `(div (@ (id "content") (class "full-page"))
                                 (div (@ (align "center"))
@@ -70,6 +73,8 @@
 
 
 
+;; Return a Haunt builder that emits HTML and TeX versions of the CV and
+;; then compiles the TeX file into a PDF.
 (define* (builder-cv #:key
                      (html-layout layout-cv-html)
                      (tex-layout layout-cv-tex)
@@ -96,6 +101,7 @@
   ;;                  (display "\n")) tex-sym-dict)
   ;; (display "\n-------")
   (lambda (site posts)
+    ;; Place each generated CV artifact under the configured URI base path.
     (define (make-file-path ext) (string-append uri-base-path ext))
     (define cv-html (serialized-artifact
                      (make-file-path "cv.html")

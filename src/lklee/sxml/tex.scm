@@ -32,6 +32,7 @@
   #:use-module (lklee utils)
   #:export (sxml->tex))
 
+;; Write a macro or environment option list like [a,b,c] when options are present.
 (define (opts->tex opts port)
   (define opts-len (length opts))
   (if (> opts-len 0)
@@ -41,6 +42,7 @@
         (display "]" port)
         ))
 )
+;; Serialize each TeX argument in ARGS as a braced value.
 (define (args->tex args port symbol-dict)
   (for-each (lambda (arg)
               (display "{" port)
@@ -48,6 +50,8 @@
               (display "}" port))
             args))
 
+;; Serialize an SXML node as a TeX macro call, delegating to SYMBOL-DICT
+;; when a custom renderer is registered for FUNC.
 (define (macro->tex func opts args port symbol-dict)
   "\\func[opts...]{args[0]}{args[1]}...{args[n]}"
   (if (hash-ref symbol-dict func)
@@ -65,6 +69,8 @@
         (format port " ")
   )
 
+;; Serialize an SXML node as a TeX environment with optional options and
+;; positional arguments.
 (define (env->tex env opts args port sym-dict)
   "\\begin{env}[opts...]{args1}{args2}...{args n-1} args n\\end{env}"
   (format port "\\begin{~a}" env)
@@ -78,9 +84,10 @@
 
 
 
+;; Walk an SXML tree and write the corresponding TeX markup to PORT.
 (define* (sxml->tex tree #:optional (port (current-output-port))
                     (symbol-dict (make-hash-table)))
-  "Write the serialized HTML form of TREE to PORT."
+  "Write the serialized TeX form of TREE to PORT."
   (match tree
     (() *unspecified*)
     (('begin env ('@ opts ...) args ...)
@@ -109,6 +116,7 @@
      (display (call-with-output-string (cut display obj <>)) port))))
 
 
+;; Render SXML to a TeX string instead of writing directly to a port.
 (define* (sxml->tex-string sxml #:key (symbol-dict (make-hash-table)))
   "Render SXML as an tex string."
   (call-with-output-string

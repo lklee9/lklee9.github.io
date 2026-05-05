@@ -11,6 +11,7 @@
             theme-publications))
 
 
+;; Wrap a page body in the site's main HTML shell with shared header and footer.
 (define (layout-main site title body)
   `((doctype  "html")
     (html (@ (lang "en"))
@@ -27,6 +28,7 @@
 
 
 ;; theme-redirect
+;; Render a minimal page that redirects the browser to an external URL.
 (define (layout-redirect site title body)
   `((doctype "html")
     (html (@ (lang "en"))
@@ -40,10 +42,12 @@
           ,component:html-footer
           )))
 
+;; Use the post body directly as the redirect target URL.
 (define (post-template-redirect post)
   (post-sxml post))
 
 
+;; Theme used for publication redirect pages.
 (define theme-redirect
     (theme #:name "main"
          #:layout layout-redirect
@@ -51,24 +55,25 @@
          ))
 
 ;; theme-publications
+;; Render the publications index page grouped by publication status.
 (define (collection-template-pub site title posts prefix)
   (define me (assoc-ref (site-default-metadata site) 'author))
   (define pubs (map post-metadata posts))
-  (define pubs-published (filter-pubs-by-status pubs "published"))
-  (define pubs-accepted (filter-pubs-by-status pubs "accepted"))
+  (define pubs-coauthor (filter-pubs-by-status pubs "coauthored"))
+  (define pubs-first (filter-pubs-by-status pubs "authored"))
   `(,component:html-side-info
     (div (@ (id "content") (class "main-column"))
          (h2 Publications)
-         ,@(if (equal? (length+ pubs-accepted) 0) '()
-               (cons* '(h3 Accepted)
-                      (html-list-items pubs-accepted me)
-                      ))
-         ,@(if (equal? (length+ pubs-published) 0) '()
-               (cons* '(h3 Published)
-                      (html-list-items pubs-published me)
+         ,@(if (equal? (length+ pubs-first) 0) '()
+               (cons* (html-list-items pubs-first me)))
+         ,@(if (equal? (length+ pubs-coauthor) 0) '()
+               (cons* '(h2 "Coauthored Publications")
+                      (html-list-items pubs-coauthor me)
                       ))
          )))
 
+;; Render the full publication detail page with authors, venue, abstract,
+;; and any extra post body content.
 (define (post-template-pub post)
    (define me (assoc-ref (post-metadata post) 'author))
    `((div (@ (id "content") (class "full-page"))
@@ -88,6 +93,7 @@
           ,(html-links (post-metadata post))
           (div ,(post-sxml post)))))
 
+;; Theme used for the publications collection and publication detail pages.
 (define theme-publications
   (theme #:name "main"
          #:layout layout-main

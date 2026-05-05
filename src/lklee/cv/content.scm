@@ -2,6 +2,8 @@
   #:use-module (lklee utils)
   #:export (cv-content))
 
+;; Return the symbolic CV document tree consumed by the HTML and TeX CV
+;; renderers.
 (define (cv-content pubs)
   `(cv-body (cv-section "Education")
             (cv-entry "2019--2023"
@@ -113,7 +115,8 @@
                      "(Research Training Program) Scholarship")
 
             (cv-section "Publications")
-            (cv-pub-list "Loong Kuan Lee" ,pubs)
+            (cv-pub-list "Loong Kuan Lee" ,pubs "authored")
+            (cv-pub-list "Loong Kuan Lee" ,pubs "coauthored")
 
             )
             )

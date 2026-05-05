@@ -66,6 +66,7 @@
 
 (define (string->escaped-html s port)
   "Write the HTML escaped form of S to PORT."
+  ;; Escape one character if it has a special HTML entity.
   (define (escape c)
     (let ((escaped (hash-ref %escape-chars c)))
       (if escaped
@@ -117,6 +118,7 @@ list ATTRS and the child nodes in BODY."
             (format port "</~a>" tag))))
   )
 
+;; Serialize an SXML doctype declaration to HTML.
 (define (doctype->html doctype port)
   (format port "<!DOCTYPE ~a>" doctype))
 

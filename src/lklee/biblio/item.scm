@@ -9,20 +9,26 @@
             html-authors html-venue html-links))
 
 ;; functions
+;; Return only the publications whose STATUS matches the requested value.
 (define (filter-pubs-by-status pubs status)
   (filter (lambda (p) (equal? (assoc-ref p 'status) status)) pubs))
 
 
 ;; tex
+;; Render a single bibliography item as a bibentry reference for TeX.
 (define (tex-list-item bib-item) `(bibentry ,(assoc-ref bib-item 'id)))
 
+;; Render a sequence of publications as itemized TeX bibliography entries.
 (define (tex-list-items pubs)
   (map (lambda (p) `("\\item" ,(tex-list-item p) ".")) pubs))
 
 ;; html
+;; Render a list of publications as HTML blocks separated by line breaks.
 (define (html-list-items pubs me)
   (map (lambda (pub) `(,(html-list-item pub me) (br))) pubs))
 
+;; Render one publication as an HTML snippet with title, authors, venue,
+;; and action links.
 (define (html-list-item pub me)
   `(div (@ (itemscope "")
            (itemtype "http://schema.org/ScholarlyArticle")
@@ -36,6 +42,7 @@
         ,(html-links pub)
         ))
 
+;; Render the publication title, linking to a detail page when one exists.
 (define (html-title pub)
   (define title (assoc-ref pub 'title))
   (define pub-page-link
@@ -46,10 +53,13 @@
                  (style "font-weight:bold")) ,title))
         `(span (@ (itemprop "name") (class "pub-title")) ,title)))
 
+;; Render the author list for a publication, bolding the site owner's name.
 (define (html-authors pub me)
-  (let* ((merge-names (lambda (fn-gn)
+  (let* (;; Combine a split family/given-name record into one display string.
+         (merge-names (lambda (fn-gn)
                         (string-append (assoc-ref fn-gn 'gn) " "
                                        (assoc-ref fn-gn 'fn))))
+         ;; Wrap a rendered author name in the schema.org markup used on the page.
          (fmt-n (lambda (n)
                   `(span (@ (itemprop "author")
                           (class "pub-author")) ,n)))
@@ -60,6 +70,8 @@
          (assoc-ref pub 'authors))
   ))
 
+;; Render the publication venue line, adapting the output to preprints,
+;; private items, and formally published papers.
 (define (html-venue pub)
   (let* ((type (assoc-ref pub 'type))
          (comments (if (assoc-ref pub 'comments)
@@ -99,6 +111,7 @@
   ;; )
     ))
 
+;; Render button-style links for a publication, including the DOI when available.
 (define (html-links pub)
   (define pub-links (if (assoc-ref pub 'links)
                         (assoc-ref pub 'links) '()))
@@ -108,6 +121,7 @@
                (string-append "https://doi.org/" (assoc-ref pub 'doi))
                pub-links)
         pub-links))
+  ;; Format one named publication link as a button.
   (define (fmt-link link)
     `((span (a (@ (class "button") (href ,(cdr link))) ,(car link))) (" ")))
   `(div (@ (class "pub-links")) ,@(map fmt-link pub-links-with-doi))

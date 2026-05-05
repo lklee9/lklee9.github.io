@@ -5,6 +5,7 @@
             html-footer
             html-side-info))
 
+;; Build the HTML <head> element, optionally configuring an immediate redirect.
 (define* (html-head title #:key (redirect-url #f))
   `(head
     (meta (@ (charset "utf-8"))
@@ -23,6 +24,7 @@
          (title ,title))))
 
 
+;; Render the top navigation bar and highlight the active page.
 (define (html-header-nav cur-page-title)
   `(nav (a (@ (class ,(if (equal? cur-page-title "home")
                          "current" "not-current"))
@@ -35,6 +37,7 @@
           "CV"))
   )
 
+;; Shared footer shown on every page.
 (define html-footer
   `(footer (@ (class "full-page"))
            (hr (@ (size "1") (color "#c8c8c8")
@@ -50,15 +53,18 @@
            (a (@ (href "https://github.com/lklee9/lklee9.github.io"))
               ,(date->string (current-date) "~1"))))
 
+;; Render one external-profile label/value pair for the sidebar.
 (define (ext-link site username link)
   `((dt ,site) (dd (a (@ (rel "me") (href ,link) (align "right"))
                       ,username))))
 
+;; Render the collection of external profile links shown in the sidebar.
 (define (ext-links . links)
   `(d1 (@ (class "external-links"))
        ,@(apply append (map (lambda (l) (apply ext-link l) ) links))
        ))
 
+;; Sidebar blurb and contact links displayed on the publications page.
 (define html-side-info
   `(div (@ (id "sidebar-right"))
         (p "
@@ -70,5 +76,5 @@ and probabilistic graphical models.")
           '("email" "mail@lklee.dev" "mailto:mail@lklee.dev")
           '("github" "lklee9" "https://github.com/lklee9")
           '("gitlab" "lklee" "https://gitlab.com/lklee")
-          '("mastodon" "@lklee@emacs.ch" "https://emacs.ch/@lklee")))
+          ))
   )
