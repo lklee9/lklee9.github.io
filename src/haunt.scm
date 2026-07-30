@@ -8,6 +8,7 @@
              (haunt site)
              (lklee biblio)
              (lklee site theme)
+             (lklee site redirects)
              ((lklee site components) #:prefix component:)
              (lklee utils)
              (lklee biblio builder)
@@ -74,6 +75,14 @@
                 ("code" . "https://github.com/lklee9/DriftMapper")))))
     ))
 
+;; Site-wide redirects, mapping a path on this site to the URL it should
+;; send visitors to.  A path ending in ".html" is written verbatim,
+;; anything else becomes a directory index so that both "/name" and
+;; "/name/" resolve.
+(define redirects
+  '(("/scholar" . "https://scholar.google.com/citations?user=OEEckcAAAAAJ")
+    ))
+
 ;; Earlier merge helper that overlays per-publication metadata onto
 ;; bibliography entries keyed by id.
 (define (merge-pubs-biblio pubs biblio)
@@ -120,6 +129,8 @@
                    #:theme theme-publications
                    #:theme-redirect theme-redirect
                    #:pubs pubs-full)
+                  (builder-redirects
+                   #:redirects redirects)
                   (builder-cv
                    #:content (cv-content pubs-full)
                    #:pubs pubs-full

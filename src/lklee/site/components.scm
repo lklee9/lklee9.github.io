@@ -8,20 +8,17 @@
 ;; Build the HTML <head> element, optionally configuring an immediate redirect.
 (define* (html-head title #:key (redirect-url #f))
   `(head
-    (meta (@ (charset "utf-8"))
+    (meta (@ (charset "utf-8")))
     (meta (@ (name "viewport")
-                  ,(if redirect-url '(http-equiv "refresh")
-                       '(http-equiv "content-type"))
-                  ,(if redirect-url
-                       `(content ,(string-append "0;URL=" redirect-url))
-                       '(content
-                         "width=device-width, initial-scale=1.0"))
-                  (content "width=device-width")
-                  ))
-         (link (@ (rel "stylesheet")
-                  (type "text/css")
-                  (href "/assets/styles.css")))
-         (title ,title))))
+             (content "width=device-width, initial-scale=1.0")))
+    ,@(if redirect-url
+          `((meta (@ (http-equiv "refresh")
+                     (content ,(string-append "0;URL=" redirect-url)))))
+          '())
+    (link (@ (rel "stylesheet")
+             (type "text/css")
+             (href "/assets/styles.css")))
+    (title ,title)))
 
 
 ;; Render the top navigation bar and highlight the active page.
