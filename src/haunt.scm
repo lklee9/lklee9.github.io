@@ -81,6 +81,7 @@
 ;; "/name/" resolve.
 (define redirects
   '(("/scholar" . "https://scholar.google.com/citations?user=OEEckcAAAAAJ")
+    ("/uai26" . "https://lklee.dev/k-order-Markov-blanket")
     ))
 
 ;; Earlier merge helper that overlays per-publication metadata onto
