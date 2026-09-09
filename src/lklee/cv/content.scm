@@ -84,13 +84,13 @@
                       "Liaised between multiple teams "
                       "to ensure sufficient test coverage."
                       )            
-            (cv-entry "2016" ("Winter Research Intern")
-                      ("Agilent " (amp) " Monash University")
-                      ("Melbourne") ()
-                      "Developed application to compare and analyse "
-                      "large groups of timeseries data over the same "
-                      "domain based on specifications gathered from "
-                      "stakeholders at Agilent.")
+            ;; (cv-entry "2016" ("Winter Research Intern")
+            ;;           ("Agilent " (amp) " Monash University")
+            ;;           ("Melbourne") ()
+            ;;           "Developed application to compare and analyse "
+            ;;           "large groups of timeseries data over the same "
+            ;;           "domain based on specifications gathered from "
+            ;;           "stakeholders at Agilent.")
 
             (cv-section "Skills")
             (cv-item "quantum" "QUBO formulation, multi-objective "

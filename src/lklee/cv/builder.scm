@@ -14,11 +14,12 @@
                 (gn "Loong Kuan")
                 (fn "Lee")
                 (email "lee@lklee.dev")
+                (homepage "lklee.dev")
                 ;; Bare usernames only.  moderncv's \social builds the full
                 ;; URL itself, so a value carrying the host doubles it --
-                ;; "github.com/lklee9" linked to github.com/github.com/lklee9.
-                (github "lklee9")
-                (gitlab "lklee")
+                ;; "loongkuan" linked to linkedin.com/in/loongkuan.
+                ;; GitHub and GitLab are deliberately absent: the homepage
+                ;; above reaches both, and the header has no spare lines.
                 (linkedin "loongkuan")
                 (orcid "0000-0002-9967-1319"))
   `((documentclass (@ "11pt" a4paper sans) moderncv)
@@ -45,8 +46,10 @@
     ;; Personal Data
     (name ,gn ,fn)
     (email ,email)
-    (social (@ github) ,github)
-    (social (@ gitlab) ,gitlab)
+    ;; Without this the site appears on the CV only inside the email address,
+    ;; so a reader of the printed copy has to infer the domain to reach the
+    ;; web version (which carries DOI/code/pdf links the paper cannot).
+    (homepage ,homepage)
     (social (@ linkedin) ,linkedin)
     (social (@ orcid) ,orcid)
     (renewcommand* (bibliographyitemlabel) "[\\arabic{enumiv}]")
