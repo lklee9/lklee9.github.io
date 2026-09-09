@@ -1,6 +1,7 @@
 *~
 \#*\#
 .emacs.desktop*
+.DS_Store
 *.aux
 *.bbl
 *.blg
