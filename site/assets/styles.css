@@ -19,7 +19,10 @@
     --side-padding: 2rem;
     --full-font-size: 16px;
     font-size: min(3.5vw, var(--full-font-size));
-    font-family: var(--font-serif);
+    /* Iowan Old Style / Palatino: larger x-height and more open than the
+       Charter stack, which reads better at body sizes.  Headings stay on
+       --font-sans. */
+    font-family: var(--font-display);
     color: var(--fg);
     background-color: var(--bg);
     line-height: 1.3;
