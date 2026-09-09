@@ -24,44 +24,55 @@
 ;; Hand-curated publication metadata that augments the JSON bibliography.
 (define pubs
   '(
+    ("lee2026Hardware" . (
+     (status . "feat")
+     (path . "2026-qce")
+     (comments . "Accepted at IEEE QCE 2026")
+     (links . (("pdf" . "https://arxiv.org/abs/2607.26349")))
+     ))
+    ("lee2026High" . (
+     (status . "norm")
+     (path . "2026-uai")
+     (links . (("pdf" . "https://proceedings.mlr.press/v337/lee26b.html")))
+     ))
     ("muecke2025Quantum" . (
-     (status . "coauthored")
+     (status . "norm")
      (path . "2025-qce-a")
      ))
     ("lee2025Standardization" . (
-     (status . "authored")
+     (status . "feat")
      (path . "2025-qce")
      (links . (("code" . "https://gitlab.com/lklee/qubo-standardization")
                ("pdf" . "https://arxiv.org/abs/2504.12419")))
      ))
     ("lee2025Multi" . (
-     (status . "authored")
+     (status . "norm")
      (path . "2025-dsaa")
      (links . (("code" . "https://gitlab.com/lklee/quantum-power-redispatch")
                ("pdf" . "https://arxiv.org/abs/2409.09857")))
      ))
     ("gerlach2025Hybrid" . (
-     (status . "coauthored") 
+     (status . "feat") 
      (path . "2025-icml")
      (links . (("pdf". "https://proceedings.mlr.press/v267/gerlach25a.html")))
      ))
     ("lee2024Computing" .
      (
-      (status . "authored")
+      (status . "norm")
       (path . "2024-kais")
       ;; (redirects . (("/code" . "https://gitlab.com/lklee/icdm2023")))
       ;; (links . (("code" . "https://gitlab.com/lklee/icdm2023")
       ;;           ("pdf" . "https://arxiv.org/pdf/2310.09129v1")))
       ))
-    ("lee2023Computinga" .
+    ("lee2023Computing" .
      (
-      (status . "authored")
+      (status . "norm")
       (path . "2023-icdm")
       (links . (("code" . "https://gitlab.com/lklee/icdm2023")
                 ("pdf" . "https://arxiv.org/pdf/2310.09129v1")))
       ))
-    ("lee2023Computing" .
-     ((status . "authored")
+    ("lee2023Computinga" .
+     ((status . "feat")
       (path . "2023-aaai")
       (links . (("pdf" . "/assets/pdf/lee2023.pdf")
                 ("code" . "https://gitlab.com/lklee/comp-div-dm")
@@ -69,7 +80,7 @@
       ;; (comments . "Presentation")
       ))
     ("webb2018Analyzing" .
-     ((status . "coauthored")
+     ((status . "norm")
       (path . "2018-dmkd")
       (links . (("pdf" . "/assets/pdf/webb2018.pdf")
                 ("code" . "https://github.com/lklee9/DriftMapper")))))

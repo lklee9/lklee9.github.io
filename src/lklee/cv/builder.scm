@@ -14,9 +14,13 @@
                 (gn "Loong Kuan")
                 (fn "Lee")
                 (email "lee@lklee.dev")
-                (github "github.com/lklee9")
-                (gitlab "gitlab.com/lklee")
-                (orcid "orcid.org/0000-0002-9967-1319"))
+                ;; Bare usernames only.  moderncv's \social builds the full
+                ;; URL itself, so a value carrying the host doubles it --
+                ;; "github.com/lklee9" linked to github.com/github.com/lklee9.
+                (github "lklee9")
+                (gitlab "lklee")
+                (linkedin "loongkuan")
+                (orcid "0000-0002-9967-1319"))
   `((documentclass (@ "11pt" a4paper sans) moderncv)
     (moderncvstyle classic)
     (moderncvcolor black)
@@ -43,6 +47,7 @@
     (email ,email)
     (social (@ github) ,github)
     (social (@ gitlab) ,gitlab)
+    (social (@ linkedin) ,linkedin)
     (social (@ orcid) ,orcid)
     (renewcommand* (bibliographyitemlabel) "[\\arabic{enumiv}]")
     (renewcommand (refname) Publications)

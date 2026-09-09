@@ -65,10 +65,12 @@
 (define html-side-info
   `(div (@ (id "sidebar-right"))
         (p "
-I am currently a research assistant at Fraunhofer IAIS in Germany
-working on quantum optimisation and machine learning. My areas of
-interest include quantum optimisation, machine learning, concept drift,
-and probabilistic graphical models.")
+I am currently a Research Associate at Fraunhofer IAIS in Germany, where
+I work on quantum optimisation and machine learning. Specifically, I am
+interested in how multi-objective and constrained combinatorial problems
+should be formulated so that a quantum solver can be applied to
+them. Before that, my doctoral work was on measuring divergences between
+probabilistic graphical models, and on concept drift.")
         ,(ext-links
           '("email" "mail@lklee.dev" "mailto:mail@lklee.dev")
           '("github" "lklee9" "https://github.com/lklee9")

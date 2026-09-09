@@ -20,6 +20,18 @@
     ("html" `(b ,@entries))
     (else `(textbf ,entries))))
 
+;; Create a renderer for small grey text that emits either HTML or TeX markup.
+;; The HTML branch deliberately returns a `span' rather than a `small'
+;; element: element->html re-serializes a renderer's output with the same
+;; symbol dictionary, so a tree headed by `small' would recurse forever.
+(define ((small ext-target) . entries)
+  (match ext-target
+    ("html" `(span (@ (class "cvsmall")) ,@entries))
+    ;; \textcolor[gray]{0.4}{\small ...} -- the gray *model* is used rather
+    ;; than a named colour so this does not depend on which colour names
+    ;; moderncv happens to define.  0.4 matches --fg-muted in styles.css.
+    (else `(textcolor (@ "gray") "0.4" ("\\small " ,@entries)))))
+
 ;; Create a renderer for an explicit line break in HTML or TeX output.
 (define ((newline ext-target) )
   (match ext-target
@@ -54,7 +66,11 @@
 ;; Render a two-column CV item with a left margin label and right-hand content.
 (define ((cv-item ext-target) marg . entries)
   (match ext-target
-    ("html" `((div (@ (class "cvleft")) ,(smart-dashes marg))
+    ;; MARG is usually a plain string, but it may also be inline markup such
+    ;; as (small "..."), which smart-dashes cannot take -- it calls
+    ;; string-replace-substring.  Only fold the dashes when it is a string.
+    ("html" `((div (@ (class "cvleft"))
+                   ,(if (string? marg) (smart-dashes marg) marg))
               (div (@ (class "cvitem cvright")) ,@entries)))
     (else `(cvitem ,marg ,entries))))
 
@@ -73,11 +89,11 @@
 
 ;; Render the publication section of the CV, optionally filtered by status.
 (define* ((cv-pub-list ext-target) me
-          #:optional (pubs '()) (status "authored")  )
+          #:optional (pubs '()) (status "authored") (header #f) )
   (define pubs-with-status (filter-pubs-by-status pubs status))
   (match ext-target
     ("html" `((h4 (@ (class "cvtitle cvleft"))
-                  ,(string-capitalize status))
+                  ,(if header (string-capitalize status) ""))
               ,@(list-tail (append-map
                  (lambda (x)
                    (list '(h4 (@ (class "cvleft")) " ")
@@ -86,17 +102,21 @@
                  (html-list-items pubs-with-status me)) 1)
               )
      )
-    (else `((subsection ,(string-capitalize status))
+    (else `(,(if header
+             `(subsection ,(string-capitalize status)) `())
             (begin list "" "\\setlength{\\leftmargin}{6.6em}"
                  ,@(tex-list-items pubs-with-status))))
     )
   )
 
-
 ;; Render a full CV entry with emphasized title fields and optional detail text.
 (define ((cv-entry ext-target) marg btxt1 itxt2 txt3 itxt4 . txts5)
   (match ext-target
-    ("html" `((div (@ (class "cvleft")) ,(smart-dashes marg))
+    ;; The date cell carries cventry-date so the stylesheet can space the two
+    ;; cells of an entry row as a unit.  Spacing only the right-hand cell would
+    ;; grow the grid row and let align-items:center drift the date off the
+    ;; entry's first line.
+    ("html" `((div (@ (class "cvleft cventry-date")) ,(smart-dashes marg))
               (div (@ (class "cventry cvright"))
                    (b ,btxt1)
                    ,(if (null? itxt2) "" `(", " (i ,@itxt2)))
@@ -127,7 +147,7 @@
 
 ;; Registry of symbolic CV renderers shared by the HTML and TeX serializers.
 (define symbol-definitions
-  (list it bf newline amp
+  (list it bf small newline amp
         cv-body cv-section cv-subsection cv-entry cv-item
         cv-list cv-list-item cv-pub-list
         greeksym))

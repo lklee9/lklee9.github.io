@@ -65,8 +65,14 @@
         (format port "\\~a" func)
         (opts->tex opts port)
         (args->tex args port symbol-dict)
+        ;; A TeX control word has to be terminated by something that is not
+        ;; a letter.  A braced argument does that already, so the space is
+        ;; only needed when the macro took none.  Emitting it unconditionally
+        ;; -- and twice over for a macro routed through SYMBOL-DICT, since
+        ;; that branch recurses -- put a space before every comma and full
+        ;; stop that followed inline markup.
+        (if (null? args) (format port " "))
         ))
-        (format port " ")
   )
 
 ;; Serialize an SXML node as a TeX environment with optional options and

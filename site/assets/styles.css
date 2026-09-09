@@ -8,6 +8,7 @@
     --fg: black;
     --bg: white;
     --bg-shaded: #efefef;
+    --fg-muted: #666;
     --a-fg: #0077aa;
     --a-weight: 600;
     /* --site-max-width: 960px; */
@@ -255,11 +256,28 @@ nav {
     margin-bottom: 0.25em;
 }
 
-.cventry {
-    margin-bottom: 0.75em;
+/* Space entries apart at the top, not the bottom.  An entry is followed by
+   its own cv-item detail rows (thesis, supervisors, ...), so a bottom margin
+   would separate an entry from its own details instead of from the next
+   entry.  Both cells of the row get the margin so it moves as a unit. */
+.cventry,
+.cventry-date {
+    margin-top: 0.75em;
+}
+
+/* ...except the first entry under a section heading, which the heading's
+   own margin already separates. */
+.cvtitle + .cventry-date,
+.cvtitle + .cventry-date + .cventry {
+    margin-top: 0;
 }
 
 .cvlist {
     margin-top: 0.1em;
     margin-bottom: 0.1em;
+}
+
+.cvsmall {
+    font-size: 0.9em;
+    color: var(--fg-muted);
 }
