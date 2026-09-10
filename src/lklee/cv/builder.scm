@@ -25,7 +25,11 @@
   `((documentclass (@ "11pt" a4paper sans) moderncv)
     (moderncvstyle classic)
     (moderncvcolor black)
-    (usepackage (@ scale=0.75) geometry)
+    ;; 0.75 left ~26mm margins, which is airy for a CV.  0.85 gives ~16mm and
+    ;; is the only tighter value that still breaks the page cleanly: 0.78 to
+    ;; 0.82 all split a publication entry or orphan the Featured Publications
+    ;; heading across the page boundary.
+    (usepackage (@ scale=0.85) geometry)
     ;; font loading
     ;; for luatex and xetex, do not use inputenc and fontenc
     ;; see https://tex.stackexchange.com/a/496643
